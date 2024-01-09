@@ -28,26 +28,27 @@ def calculate_distance(mode, proj_distance, proj_intersections, proj_volume, pro
     intersection_distribution = {}
     distribution_den = 0
     for dist in miles_distribution:
-        intersection_distribution[dist] = math.floor(float(dist)/proj_distance_per_intersection)
-        print("miles distribution is",miles_distribution[dist])
-        print("intersection distribution original is",intersection_distribution[dist])
+        intersection_distribution[dist] = float(dist)/proj_distance_per_intersection
+        print("miles distribution is",dist)
+        print("intersection distribution is",intersection_distribution[dist])
 
         # If on average people walk more than the number of intersections in the project, then consider they have walked through all of the project intersections
         if intersection_distribution[dist] > proj_intersections:
             intersection_distribution[dist] = proj_intersections
-        print("intersection distribution cut-off is",intersection_distribution[dist])
 
         # Distribution of people walking through intersections
         distribution_den += intersection_distribution[dist]*miles_distribution[dist] # number of intersections * % of people walking through them - weighted average # of intersections/ways each person is counted at
         adjusted_den = (distribution_den * proj_connected) # people staying in the project (proj_connected): travel the average.
+        print(adjusted_den)
         adjusted_den += (1-proj_connected)# People crossing (everyone else, 1 - proj_connected) travel 1 intersection.
-
+        print(adjusted_den)
     print("average intersections traveled is",distribution_den)
     print("adjusted average intersections traveled is",adjusted_den)
-    print(adjusted_den/distribution_den)
+    print("ratio is", adjusted_den/distribution_den)
 
-    people = math.floor(proj_volume/distribution_den)
+    people = proj_volume/distribution_den
     people_adj = proj_volume/adjusted_den # total people/average intersections = unique people, not counted multiple times
+    print("original volume is",proj_volume)
     print("unique people is",people)
     print("adjusted unique people is",people_adj)
 
