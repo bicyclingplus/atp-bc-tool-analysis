@@ -98,6 +98,7 @@ infrastructure 4: {travel increase factor (Eik) = 50%, crash reduction factor = 
         Output: 0.061680522832233284 crashes
 
 6. Existing (weighted) miles traveled
+
 a) Bike
 
 Input: set of ways with length and bicycle demand
@@ -105,15 +106,16 @@ way 1: {bicycle demand = 50, length = 0.1 miles}
 way 2: {bicycle demand = 75, length = 0.2 miles}
 way 3: {bicycle demand = 25, length = 0.05 miles}
 
-Output: 305.70231676196283 miles
+Output: 170.0569558270192 miles
 
 b) Walk
 
 Input: set of intersections with adjacent ways length and pedestrian demand
 intersection 1: {pedestrian demand = 200, adjacent selected ways lengths = 0.1 miles, 0.2 miles}
 intersection 2: {pedestrian demand = 400, adjacent selected ways lengths = 0.1 miles, 0.05 miles}
+Project length: 0.35 miles
 
-Output: 202.07823960880205 miles
+Output: 216.78688524590174 miles
 
 7. New miles traveled (oh, should this also have variations of different modes?)
 
@@ -124,17 +126,20 @@ $PT_{cmk}=WET_{cm} + \sum_{i}\sum_{F}E_{ik} * \frac{Ni}{L} * I_{F}$
         Input: existing miles traveled = 200, project length = 1 mile, travel increase factor (Eik) = 25%, infrastructure length = 0.5 miles, infrastructure type = new
 
         Output: 225 miles
+
   b) count-based segment improvement
 
         Input: existing miles traveled = 200, project length = 1 mile, travel increase factor (Eik) = 25%, infrastructure count = 10, infrastructure type = new
 
         Output: 209.46969696969697 miles
+
   c) count-based intersection improvement
 
         Input: existing miles traveled = 200, project # of intersections = 20 mile, travel increase factor (Eik) = 25%, infrastructure count = 10, infrastructure type = new
 
         Output: 225 miles (same as part a)
-d) combination
+
+  d) combination
 
         Input: existing miles traveled = 200, project length = 1 mile, project # of intersections = 20
 infrastructure 1: {travel increase factor (Eik) = 25%, infrastructure length = 0.5 miles, infrastructure type = new}
