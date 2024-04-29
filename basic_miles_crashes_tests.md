@@ -4,7 +4,7 @@
 
 $CC_{cmow} =  e^{Ɑ_{movf}} * L_{w} * (EV_{cmw})^{0.4}$
 
-Input: bicycle volume class = medium, pedestrian volume class = medium, bicycle functional class = minor road, pedestrian functional class = minor road, bicycle exposure = 50, pedestrian exposure = 100, length = 0.1 miles
+Input: bicycle volume class = medium, pedestrian volume class = medium, bicycle functional class = minor road, pedestrian functional class = minor road, bicycle exposure = 50, pedestrian exposure = 100, length = 528 feet
 
 Output (clean this up later):
 
@@ -34,9 +34,9 @@ Input:
 intersection 1: {pedestrian exposure = 600, bicycle exposure = 100, bicycle volume class = medium, pedestrian volume class = medium, bicycle functional class = minor road, pedestrian functional class = minor road}
 intersection 2: {pedestrian exposure = 1000, bicycle exposure = 50, bicycle volume class = medium, pedestrian volume class = high, bicycle functional class = major road, pedestrian functional class = major road}
 
-way 1: {pedestrian exposure = 100, bicycle exposure = 50, bicycle volume class = low, pedestrian volume class = low, bicycle functional class = minor road, pedestrian functional class = minor road, length = 0.1 miles}
-way 2: {pedestrian exposure = 600, bicycle exposure = 200, bicycle volume class = medium, pedestrian volume class = medium, bicycle functional class = major road, pedestrian functional class = major road, length = 0.2 miles}
-way 3: {pedestrian exposure = 200, bicycle exposure = 100, bicycle volume class = medium, pedestrian volume class = medium, bicycle functional class = minor road, pedestrian functional class = minor road, length = 0.05 miles}
+way 1: {pedestrian exposure = 100, bicycle exposure = 50, bicycle volume class = low, pedestrian volume class = low, bicycle functional class = minor road, pedestrian functional class = minor road, length = 528 feet}
+way 2: {pedestrian exposure = 600, bicycle exposure = 200, bicycle volume class = medium, pedestrian volume class = medium, bicycle functional class = major road, pedestrian functional class = major road, length = 1056 feet}
+way 3: {pedestrian exposure = 200, bicycle exposure = 100, bicycle volume class = medium, pedestrian volume class = medium, bicycle functional class = minor road, pedestrian functional class = minor road, length = 264 feet}
 
 a) Model only total crashes
 
@@ -71,27 +71,27 @@ $NC_{cmojk}=EC_{cmoj} * (1 + \sum_{i}\sum_{F}E_{ik} * \frac{Ni}{L} * I_{F})^{p}*
 
   a) length-based segment improvement
 
-        Input: total existing crashes = 10, crash reduction factor = 50%, travel increase factor (Eik) = 25%, infrastructure length = 0.5 miles, project length = 1 mile, infrastructure type = new
+        Input: total existing crashes = 10, crash reduction factor = 50%, travel increase factor (Eik) = 25%, infrastructure length = 2640 feet, project length = 5280 feet, infrastructure type = new
 
         Output: 5.241203390786843
 
   b) count-based segment improvement
 
-        Input: total existing crashes = 10, crash reduction factor = 50%, travel increase factor (Eik) = 25%, infrastructure count = 10, project length = 1 mile, infrastructure type = new
+        Input: total existing crashes = 10, crash reduction factor = 50%, travel increase factor (Eik) = 25%, infrastructure count = 10, project length = 5280 feet, infrastructure type = new
 
         Output: 5.093384799130433
 
  c) count-based intersection improvement
 
-        Input: total existing crashes = 10, crash reduction factor = 50%, travel increase factor (Eik) = 25%, infrastructure count = 10, project # of intersections = 20 mile, infrastructure type = new
+        Input: total existing crashes = 10, crash reduction factor = 50%, travel increase factor (Eik) = 25%, infrastructure count = 10, project # of intersections = 20, infrastructure type = new
 
         Output (same as the first case): 5.241203390786843
 
 d) combination
 
-        Input: total existing crashes = 10, project length = 1 mile, project # of intersections = 20
-infrastructure 1: {travel increase factor (Eik) = 25%, crash reduction factor = 20%, infrastructure length = 0.5 miles, infrastructure type = new}
-infrastructure 2: {travel increase factor (Eik) = 15%, crash reduction factor = 10%, infrastructure length = 0.7 miles, infrastructure type = new}
+        Input: total existing crashes = 10, project length = 5280 feet, project # of intersections = 20
+infrastructure 1: {travel increase factor (Eik) = 25%, crash reduction factor = 20%, infrastructure length = 2640 feet, infrastructure type = new}
+infrastructure 2: {travel increase factor (Eik) = 15%, crash reduction factor = 10%, infrastructure length = 3696 feet, infrastructure type = new}
 infrastructure 3: {travel increase factor (Eik) = 30%, crash reduction factor = 50%, infrastructure count = 15 (on segment), infrastructure type = new}
 infrastructure 4: {travel increase factor (Eik) = 50%, crash reduction factor = 50%, infrastructure count = 15 (on intersection), infrastructure type = new}
 
@@ -102,18 +102,18 @@ infrastructure 4: {travel increase factor (Eik) = 50%, crash reduction factor = 
 a) Bike
 
 Input: set of ways with length and bicycle demand
-way 1: {bicycle demand = 50, length = 0.1 miles}
-way 2: {bicycle demand = 75, length = 0.2 miles}
-way 3: {bicycle demand = 25, length = 0.05 miles}
+way 1: {bicycle demand = 50, length = 528 feet}
+way 2: {bicycle demand = 75, length = 1056 feet}
+way 3: {bicycle demand = 25, length = 264 feet}
 
 Output: 170.0569558270192 miles
 
 b) Walk
 
 Input: set of intersections with adjacent ways length and pedestrian demand
-intersection 1: {pedestrian demand = 200, adjacent selected ways lengths = 0.1 miles, 0.2 miles}
-intersection 2: {pedestrian demand = 400, adjacent selected ways lengths = 0.1 miles, 0.05 miles}
-Project length: 0.35 miles
+intersection 1: {pedestrian demand = 200, adjacent selected ways lengths = 528 feet, 1056 feet}
+intersection 2: {pedestrian demand = 400, adjacent selected ways lengths = 528 feet, 264 feet}
+Project length: 1848 feet
 
 Output: 216.78688524590174 miles
 
@@ -123,28 +123,28 @@ $PT_{cmk}=WET_{cm} + \sum_{i}\sum_{F}E_{ik} * \frac{Ni}{L} * I_{F}$
 
   a) length-based segment improvement
 
-        Input: existing miles traveled = 200, project length = 1 mile, travel increase factor (Eik) = 25%, infrastructure length = 0.5 miles, infrastructure type = new
+        Input: existing miles traveled = 200 miles, project length = 5280 feet, travel increase factor (Eik) = 25%, infrastructure length = 2640 feet, infrastructure type = new
 
         Output: 225 miles
 
   b) count-based segment improvement
 
-        Input: existing miles traveled = 200, project length = 1 mile, travel increase factor (Eik) = 25%, infrastructure count = 10, infrastructure type = new
+        Input: existing miles traveled = 200 miles, project length = 5280 feet, travel increase factor (Eik) = 25%, infrastructure count = 10, infrastructure type = new
 
         Output: 209.46969696969697 miles
 
   c) count-based intersection improvement
 
-        Input: existing miles traveled = 200, project # of intersections = 20 mile, travel increase factor (Eik) = 25%, infrastructure count = 10, infrastructure type = new
+        Input: existing miles traveled = 200 miles, project # of intersections = 20, travel increase factor (Eik) = 25%, infrastructure count = 10, infrastructure type = new
 
         Output: 225 miles (same as part a)
 
   d) combination
 
-        Input: existing miles traveled = 200, project length = 1 mile, project # of intersections = 20
-infrastructure 1: {travel increase factor (Eik) = 25%, infrastructure length = 0.5 miles, infrastructure type = new}
-infrastructure 2: {travel increase factor (Eik) = 15%, infrastructure length = 0.7 miles, infrastructure type = new}
+        Input: existing miles traveled = 200 miles, project length = 5280 feet, project # of intersections = 20
+infrastructure 1: {travel increase factor (Eik) = 25%, infrastructure length = 2640 feet, infrastructure type = new}
+infrastructure 2: {travel increase factor (Eik) = 15%, infrastructure length = 3696 feet, infrastructure type = new}
 infrastructure 3: {travel increase factor (Eik) = 30%, infrastructure count = 15 (on segment), infrastructure type = new}
 infrastructure 4: {travel increase factor (Eik) = 50%, infrastructure count = 15 (on intersection), infrastructure type = new}
 
-        Output: 338.04545454545456 miles
+        Output: 338.04545454545456 s
